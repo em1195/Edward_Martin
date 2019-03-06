@@ -1,0 +1,5 @@
+disp('contains priniciple component coefficients') 
+disp('they are also the eigenvectors of the covariance matrix')
+disp('rows = vairables effect on PC on at column, colummns = PCs')
+disp(' ')
+disp(coeff)
