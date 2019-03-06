@@ -1,2 +1,7 @@
 This folder contains all the code used in my Introduction to Neural Networks module project, undertaken in my third year at the 
 University of York. 
+
+The purpose of this assessment is to use the data provided in dataR2.csv to build a Neural Network tp correctly predict the
+classification of a patients input into either cancerous (1) or cancer-free (0). Marks are not however just given for producing
+"perfect" results, but for justifying the actions you took to arrive at those results, with references and explainations of the 
+relavent literature, showing your understanding.
