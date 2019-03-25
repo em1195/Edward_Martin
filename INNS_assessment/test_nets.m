@@ -1,0 +1,21 @@
+results = [];
+results = [results, 
+    testing(net3_3, input_data, input_target),
+    testing(net4_3, input_data, input_target),
+    testing(net5_3, input_data, input_target),
+    testing(net6_3, input_data, input_target),
+    testing(net7_3, input_data, input_target),
+    testing(net8_3, input_data, input_target),
+    testing(net9_3, input_data, input_target),
+    testing(net10_3, input_data, input_target),
+    testing(net11_3, input_data, input_target),
+    testing(net12_3, input_data, input_target),
+    testing(net13_3, input_data, input_target),
+    testing(net14_3, input_data, input_target),
+    testing(net15_3, input_data, input_target),
+    testing(net16_3, input_data, input_target),
+    testing(net17_3, input_data, input_target),
+    testing(net18_3, input_data, input_target),
+    testing(net19_3, input_data, input_target),
+    testing(net20_3, input_data, input_target)
+    ]
