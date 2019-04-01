@@ -2,7 +2,7 @@ function [ptest] = testing(net,X,y)
 ptrain = [];
 pvalidate = [];
 ptest = [];
- for i = 1:3000
+ for i = 1:1000
      init(net);
      [trained_net, TR] = train(net,X,y);
      ptrain = [ptrain; TR.best_perf];

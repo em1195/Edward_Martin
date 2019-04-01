@@ -14,7 +14,7 @@ raw5 = [raw(1:4,:);raw(6:9,:)];
 
 input_mean = bsxfun(@minus,X,mean(X))';
 input_mean = [input_mean(1:3,:);input_mean(5:9,:)];
-mapped = mapminmax(raw4);
+mapped = mapminmax(raw5);
 meanmap = mapminmax(input_mean);
 mapstded = mapstd(raw4);
 
