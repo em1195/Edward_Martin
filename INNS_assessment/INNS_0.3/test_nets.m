@@ -1,11 +1,14 @@
 results = [];
-results = [results,
-    create_net([9 2],mapped,y_onehot),
-    create_net([9 3],mapped,y_onehot),
-    create_net([9 4],mapped,y_onehot),
-    create_net([9 5],mapped,y_onehot),
-    create_net([9 6],mapped,y_onehot),
-    create_net([9 7],mapped,y_onehot),
-    create_net([9 8],mapped,y_onehot),
-    create_net([9 9],mapped,y_onehot)
-    ]
+results = [results; create_net(25, x, t)]
+results = [results; create_net(30, x, t)]
+results = [results; create_net(35, x, t)]
+results = [results; create_net(40, x, t)]
+results = [results; create_net(45, x, t)]
+results = [results; create_net(50, x, t)]
+results = [results; create_net(55, x, t)]
+results = [results; create_net(60, x, t)]
+results = [results; create_net(65, x, t)]
+results = [results; create_net(70, x, t)]
+
+
+
