@@ -1,5 +1,5 @@
 function [final] = test_net(net,x,t)
-test_num = 200;
+test_num = 100;
 count = 0;
 count_list = []
 for i = 1:test_num

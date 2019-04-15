@@ -1,7 +1,7 @@
 data = csvread('dataR2.csv',1,0);
 labels = {'age','bmi','glucose','insulin', 'homa','leptin','adiponectin','resistin','mcp1','class'};
 X = data(:,1:9);
-X = [X(:,1:3),X(:,8)];
+X = [X(:,1:4),X(:,7:9)];
 Xpca = X;
 y = data(:,10);
 y_onehot = [zeros(2,116)];

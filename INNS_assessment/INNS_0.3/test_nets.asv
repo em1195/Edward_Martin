@@ -1,0 +1,44 @@
+results = [];
+results = [results; create_net(2, X, t)];
+results = [results; create_net(4, X, t)];
+results = [results; create_net(6, X, t)];
+results = [results; create_net(8, X, t)];
+results = [results; create_net(10, X, t)];
+one_to_eight = results;
+results = [];
+results = [results; create_net(2, X(1:7,:), t)];
+results = [results; create_net(4, X(1:7,:), t)];
+results = [results; create_net(6, X(1:7,:), t)];
+results = [results; create_net(8, X(1:7,:), t)];
+results = [results; create_net(10, X(1:7,:), t)];
+hold off
+final = [];
+for i = 1:8
+    results = [];
+    for j = 1:2:11
+        if i == 1
+        elseif i ==2
+        elseif i == 3
+        elseif i == 4
+            if i == 1
+        elseif i ==2
+        elseif i == 3
+        elseif i == 4
+        end
+        
+        results = [results; create_net(j, [X(2:8,:);X(4:8,:)],t)];
+    end
+    final = [final, results];
+end
+
+
+plot(one_to_eight,'r')
+hold on
+plot(one_to_seven,'b')
+plot(one_to_six_and_eight,'g')
+plot(one_to_five_and_seven_to_eight,'m')
+plot(one_to_4_and_six_to_eight,'c')
+plot(one_to_three_and_five_to_eight,'y')
+plot(one_to_two_and_four_to_eight)
+
+

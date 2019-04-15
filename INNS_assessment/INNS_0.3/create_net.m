@@ -1,15 +1,12 @@
-function [performance] = create_net(arch, x,t,algo,reg,norm, epochs, min_grad)
+function [performance] = create_net(arch, x,t)
 
 
 net = patternnet(arch);
 init(net);
-net.trainFcn = algo;
-net.performParam.regularization = reg;
-net.performParam.normalization = norm;
-net.trainParam.epochs = epochs;
-net.trainParam.min_grad = min_grad;
-net
-net.trainParam
-%performance = 1 - test_net(net,x,t)
+net.trainFcn = 'trainscg';
+net.performParam.regularization = 0.3;
+net.performParam.normalization = 'standard';
+net.trainParam.epochs = 1000;
+performance = 1 - test_net(net,x,t);
 
 end

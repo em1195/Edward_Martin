@@ -1,1 +1,1 @@
-[coeff,score,latent,tsquared,explained,mu] = pca(Xpca');
+[coeff,score,latent,tsquared,explained,mu] = pca(Xpca);
