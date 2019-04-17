@@ -25,7 +25,6 @@ class GCN(Layer):
         X, A = x        
         _X = tf.einsum('ijk,kl->ijl',X,self.kernel) + self.bias
         _X = K.batch_dot(A,_X)
-        #_X = tf.matmul(A,_X)
         _X = self.skip(_X,X)
         print("layer output: ", _X)
         return list([_X,A])
