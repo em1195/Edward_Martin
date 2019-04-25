@@ -1,4 +1,5 @@
 import tensorflow as tf
+from tensorflow import keras
 from tensorflow.keras import backend as K
 from tensorflow.keras.layers import Layer
 from tensorflow.keras.layers import Dense
@@ -13,11 +14,13 @@ class GAN(Layer):
        
      
     def build(self, input_shape):
+        assert isinstance(input_shape, list)
+        feat_shape, adj_shape = input_shape
         self.kernel = self.add_weight(name='kernel', 
-                                      shape=(int(input_shape[0][2]),self.output_dim[1]),
-                                      initializer='uniform',
+                                      shape=(int(feat_shape[2]),self.output_dim[1]),
+                                      initializer='glorot_normal',
                                       trainable=True)
-        self.bias = self.add_weight(shape=(self.output_dim[1]),
+        self.bias = self.add_weight(shape=(feat_shape[1],self.output_dim[1]),
                                     initializer='ones',
                                     name='bias',
                                     trainable=True)
@@ -25,6 +28,10 @@ class GAN(Layer):
         for i in range(self.num_heads):
             self.attn = self.add_weight(name='attention' + str(i),
                                         shape =(self.output_dim[1],self.output_dim[1]),
+                                        initializer='uniform',
+                                        trainable=True)
+            self.attn_bias = self.add_weight(name='attention_bias' + str(i),
+                                        shape =(feat_shape[1],self.output_dim[1]),
                                         initializer='uniform',
                                         trainable=True)
             self.attn_list.append(self.attn)    
@@ -43,10 +50,10 @@ class GAN(Layer):
     def calc_attn(self, _X, A):
         heads = []
         for i in range(self.num_heads):
-            _X1 = K.batch_dot(_X,tf.einsum('ij,ajk->aik', self.attn_list[i], K.permute_dimensions(_X, (0,2,1)))) 
+            _X1 = K.dot(_X,tf.einsum('ij,ajk->aik', self.attn_list[i], K.permute_dimensions(_X, (0,2,1)))) 
             _A = keras.layers.multiply([A,_X1])
             _A = K.tanh(_A)
-            head = K.batch_dot(_A, _X)
+            head = tf.matmul(_A, _X)
             heads.append(head)
         _X = tf.reduce_mean(heads, 0)
         _X = K.relu(_X)
